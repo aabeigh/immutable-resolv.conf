@@ -12,7 +12,7 @@ Try using below
 ansible-playbook -i invent.yml myplaybook2.yaml -e tgroup=env01
 
 
-Role menv combines the functions of roles env01 and env02 into one role menv and the evaultaion is done on basis of the variable tgroup in plabook and that gets passed to role menv to evaluate logic within role 
+Role menv combines the functions of roles env01 and env02 into one role menv and the evaultaion is done on basis of the variable tgroup in playbook and that gets passed to role menv to evaluate logic within role 
 
 use following to check
 
