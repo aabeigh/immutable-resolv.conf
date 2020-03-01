@@ -1,0 +1,8 @@
+---
+- hosts: "{{ tgroup }}"
+  roles:
+     - role: menv
+       vars:
+         targetgroup: "{{ tgroup }}" 
+       when:
+         - ansible_facts['distribution'] == "RedHat"

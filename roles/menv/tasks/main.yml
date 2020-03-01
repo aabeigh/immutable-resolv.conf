@@ -1,0 +1,41 @@
+---
+# tasks file for menv
+#
+- name: Stop NM managing DNS for Server
+  ini_file:
+    path: /etc/NetworkManager/NetworkManager.conf
+    state: present
+    no_extra_spaces: yes
+    section: main
+    option: dns
+    value: none
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+  become: true
+- name: Change resolv.conf file for ENV01
+  template:
+    src: "../templates/env01.resolv.conf.j2"
+    dest: "/etc/resolv.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+    backup: "yes"
+  become: true
+  when: targetgroup == "env01"
+- name: Change resolv.conf file for ENV02
+  template:
+    src: "../templates/env02.resolv.conf.j2"
+    dest: "/etc/resolv.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+    backup: "yes"
+  become: true
+  when: targetgroup == "env02"
+- name: Set resolv.conf immutable.
+  file:
+    path: "/etc/resolv.conf"
+    attr: i
+  become: true

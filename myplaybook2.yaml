@@ -1,0 +1,12 @@
+---
+- hosts: "{{ tgroup }}"
+  roles:
+     - role: env01
+       when: 
+         - tgroup == "env01"
+         - ansible_facts['distribution'] == "RedHat"
+     - role: env02
+       when: 
+         - tgroup == "env02"
+         - ansible_facts['distribution'] == "RedHat"
+
