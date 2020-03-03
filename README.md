@@ -24,4 +24,6 @@ use following to check
 
 ansible-playbook -i invent.yml myplaybook3.yaml -e tgroup=env01
 
+Other option may be to use script within jinja template to match some variables like group_names to populate the resolv.conf
+
 
