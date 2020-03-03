@@ -3,4 +3,4 @@
   roles:
      - role: nserver
        when:
-        # - ansible_facts['distribution'] == "RedHat"
+         - ansible_facts['distribution'] == "RedHat"
