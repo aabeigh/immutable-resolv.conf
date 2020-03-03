@@ -1,0 +1,13 @@
+#Managed by Ansible
+
+{% if inventory_hostname in groups['env02'] %}
+nameserver 8.8.4.4
+nameserver 8.8.8.8
+{% endif %}
+{% if inventory_hostname in groups['env01'] %}
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+{% endif %}
+{% if inventory_hostname in groups['ungrouped'] %}
+nameserver 8.8.5.5
+{% endif %}
