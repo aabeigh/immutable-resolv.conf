@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+     - role: nserver
+       when:
+        # - ansible_facts['distribution'] == "RedHat"
